@@ -1,0 +1,93 @@
+'use client'
+
+import { Briefcase, TrendingUp, Award } from 'lucide-react'
+
+export default function ProjectsFinancesHero() {
+  return (
+    <section className="relative w-full min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a3a5f] via-[#526955] to-[#2d5a8f]">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 grid grid-cols-8 md:grid-cols-12 gap-3 md:gap-4 p-4 md:p-6">
+          {Array.from({ length: 60 }).map((_, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center animate-pulse"
+              style={{ animationDelay: `${i * 0.08}s` }}
+            >
+              {i % 2 === 0 ? (
+                <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              ) : (
+                <Award className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 text-center">
+        <div>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-6 md:mb-8">
+            <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            <span className="text-white text-sm md:text-base font-semibold uppercase tracking-wide">
+              Nos réalisations
+            </span>
+          </div>
+
+          {/* Main Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase leading-tight tracking-tight mb-4 md:mb-6">
+            PROJETS FINANCÉS
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-white/90 text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+            Découvrez les projets d'énergie verte que nous avons accompagnés vers le succès
+          </p>
+
+          {/* Stats */}
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mt-8 md:mt-12">
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <Briefcase className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <div className="text-left">
+                <p className="text-2xl md:text-3xl font-bold text-white">{projects.length}</p>
+                <p className="text-xs md:text-sm text-white/80 uppercase">Projets</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <Award className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <div className="text-left">
+                <p className="text-2xl md:text-3xl font-bold text-white">100%</p>
+                <p className="text-xs md:text-sm text-white/80 uppercase">Réussite</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Wavy Border Bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="w-full h-12 md:h-16 lg:h-20"
+          fill="none"
+        >
+          <path
+            d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"
+            fill="rgb(249, 250, 251)"
+          />
+        </svg>
+      </div>
+    </section>
+  )
+}
+
+// Temporary data for stats
+const projects = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+]
+

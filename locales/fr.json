@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "SUNREF CÔTE D'IVOIRE",
+    "financement": "FINANCEMENT",
+    "projets": "PROJETS FINANCÉS",
+    "partenaires": "PARTENAIRES",
+    "actualites": "ACTUALITÉS",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "badge": "Programme de Finance Verte",
+    "title": "SUNREF",
+    "subtitle": "CÔTE D'IVOIRE",
+    "description": "Financez votre transition énergétique et contribuez à un développement durable en Côte d'Ivoire",
+    "point1": "Efficacité Énergétique & Énergies Renouvelables",
+    "point2": "Financement jusqu'à 150 000 EUR",
+    "point3": "Assistance technique gratuite",
+    "cta1": "Découvrir le financement",
+    "cta2": "Nous contacter",
+    "stat1": "Réduction des émissions de GES visée d'ici 2030",
+    "stat2": "Part des énergies renouvelables ciblée",
+    "stat3": "Projets Éligibles",
+    "stat3Desc": "Efficacité énergétique & Énergies renouvelables"
+  },
+  "about": {
+    "title": "QU'EST-CE QUE SUNREF CÔTE D'IVOIRE?",
+    "text1": "Les engagements pris à l'occasion de la <strong>COP 21</strong>, intitulés « Contributions Prévues déterminées au niveau National », et publiés en 2016, ont fixé comme objectif de <strong className=\"text-green-300\">réduire de 28% les émissions de Gaz à Effet de Serre entre 2014 et 2030</strong>. Le Ministère du Pétrole, de l'Energie et du développement des Energies renouvelables (MPEER) prévoit ainsi une augmentation de la part des énergies renouvelables dans le mix de production énergétique à <strong className=\"text-green-300\">42%</strong>.",
+    "text2": "C'est dans ce contexte qu'intervient le <strong>programme SUNREF Côte d'Ivoire</strong>, programme de finance verte, qui vise à promouvoir les investissements du secteur privé au bénéfice de la transition énergétique ivoirienne via le déploiement combiné d'une offre technique et financière adaptée et incitative. Il a comme finalité complémentaire de favoriser la <strong className=\"text-green-300\">compétitivité durable des entreprises ivoiriennes</strong> à travers la maitrise de l'énergie.",
+    "objectivesTitle": "LES OBJECTIFS SPÉCIFIQUES DU PROGRAMME",
+    "objective1": "Renforcer la sensibilisation des entreprises de différentes tailles aux bénéfices des investissements EE et EnR, avec un accent mis sur les secteurs les plus énergivores",
+    "objective2": "Favoriser le développement d'une offre de services techniques locaux fiable et adaptée à différents besoins et échelles de projet",
+    "objective3": "Apporter aux banques partenaires une mise à niveau technique, financière et commerciale sur les problématiques EE et EnR du secteur privé",
+    "objective4": "Permettre aux banques partenaires de constituer un portefeuille pilote d'investissements EE et EnR, et les accompagner dans la définition de leur propre filière finance verte",
+    "objectivesNote": "Ces objectifs permettent de créer un écosystème favorable au développement de projets d'énergie verte en Côte d'Ivoire"
+  },
+  "stats": {
+    "title": "SUNREF EN CHIFFRES",
+    "stat1": "Financement maximum par projet",
+    "stat2": "Entreprises accompagnées",
+    "stat3": "Taux de réussite des projets",
+    "stat4": "Réduction des émissions visée",
+    "feature1": "Accompagnement personnalisé",
+    "feature1Desc": "Une équipe d'experts vous accompagne à chaque étape de votre projet",
+    "feature2": "Conditions avantageuses",
+    "feature2Desc": "Des taux préférentiels et des primes à l'investissement"
+  },
+  "program": {
+    "title": "LE PROGRAMME SUNREF CÔTE D'IVOIRE",
+    "subtitle": "Comprend une offre financière spécifique et innovante et des supports techniques",
+    "offer1": "Ligne de crédit",
+    "offer1Desc": "Une ligne de crédit mise à la disposition des banques partenaires, avec des conditions de partenariats privilégiées pour le financement d'investissements verts dans le secteur de l'efficacité énergétique et des Energies renouvelables",
+    "offer2": "Assistance technique",
+    "offer2Desc": "Une assistance technique pour les entreprises et les banques afin de les accompagner dans :",
+    "offer2Item1": "L'identification des opportunités d'investissement dans les domaines ciblés",
+    "offer2Item2": "Le montage et le suivi des projets des investissements et la sélection des technologies les mieux adaptées",
+    "offer2Item3": "Une assistance sur mesure selon la taille et la complexité du projet",
+    "offer3": "Primes à l'investissement",
+    "offer3Desc": "Une enveloppe de primes à l'investissement destinées aux clients bénéficiaires de l'Emprunteur pour la mise en œuvre d'Investissements éligibles.",
+    "cta": "Découvrir le cycle d'un projet",
+    "imageBadge": "Transition Énergétique",
+    "imageTitle": "Investissez dans l'avenir durable de votre entreprise",
+    "imageDesc": "Des solutions adaptées pour chaque projet d'efficacité énergétique et d'énergies renouvelables"
+  },
+  "footer": {
+    "description": "Programme de <strong class=\"text-white\">finance verte</strong> pour promouvoir les investissements du secteur privé au bénéfice de la <strong class=\"text-green-400\">transition énergétique</strong> ivoirienne.",
+    "follow": "Suivez-nous",
+    "navigation": "Navigation",
+    "quickLinks": "Liens rapides",
+    "contact": "Contact",
+    "partners": "Nos partenaires",
+    "newsletterTitle": "Restez informé",
+    "newsletterDesc": "Inscrivez-vous à notre newsletter pour recevoir nos actualités",
+    "newsletterPlaceholder": "Votre email",
+    "newsletterButton": "S'inscrire",
+    "copyright": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Cookies",
+    "links": {
+      "home": "Accueil",
+      "financement": "Financement",
+      "projets": "Projets Financés",
+      "partenaires": "Partenaires",
+      "actualites": "Actualités",
+      "contact": "Contact",
+      "eligibility": "Critères d'éligibilité",
+      "cycle": "Cycle d'un projet",
+      "realizations": "Nos réalisations",
+      "becomePartner": "Devenir partenaire"
+    }
+  },
+  "cta": {
+    "title": "Prêt à démarrer votre projet?",
+    "description": "Contactez-nous dès aujourd'hui pour découvrir comment SUNREF peut financer votre transition énergétique",
+    "button": "Demander un financement"
+  },
+  "ctaSection": {
+    "callUs": "Nous appeler",
+    "callUsDesc": "Discutez avec notre équipe",
+    "callUsLink": "Voir les contacts",
+    "emailUs": "Nous écrire",
+    "emailUsDesc": "Envoyez-nous un message",
+    "emailUsLink": "Formulaire de contact",
+    "documentation": "Documentation",
+    "documentationDesc": "Consultez nos ressources",
+    "documentationLink": "En savoir plus",
+    "startProject": "Démarrer mon projet maintenant"
+  }
+}
+

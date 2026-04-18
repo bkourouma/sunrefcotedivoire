@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "SUNREF CÔTE D'IVOIRE",
+    "financement": "FINANCING",
+    "projets": "FINANCED PROJECTS",
+    "partenaires": "PARTNERS",
+    "actualites": "NEWS",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "badge": "Green Finance Program",
+    "title": "SUNREF",
+    "subtitle": "CÔTE D'IVOIRE",
+    "description": "Finance your energy transition and contribute to sustainable development in Côte d'Ivoire",
+    "point1": "Energy Efficiency & Renewable Energies",
+    "point2": "Financing up to 150,000 EUR",
+    "point3": "Free technical assistance",
+    "cta1": "Discover financing",
+    "cta2": "Contact us",
+    "stat1": "Targeted GHG emissions reduction by 2030",
+    "stat2": "Targeted share of renewable energies",
+    "stat3": "Eligible Projects",
+    "stat3Desc": "Energy efficiency & Renewable energies"
+  },
+  "about": {
+    "title": "WHAT IS SUNREF CÔTE D'IVOIRE?",
+    "text1": "The commitments made at <strong>COP 21</strong>, entitled \"Nationally Determined Contributions\", and published in 2016, set the goal of <strong className=\"text-green-300\">reducing Greenhouse Gas emissions by 28% between 2014 and 2030</strong>. The Ministry of Petroleum, Energy and Renewable Energy Development (MPEER) thus plans to increase the share of renewable energies in the energy production mix to <strong className=\"text-green-300\">42%</strong>.",
+    "text2": "It is in this context that the <strong>SUNREF Côte d'Ivoire program</strong>, a green finance program, intervenes, which aims to promote private sector investments for the benefit of the Ivorian energy transition through the combined deployment of a suitable and incentive technical and financial offer. Its complementary purpose is to promote the <strong className=\"text-green-300\">sustainable competitiveness of Ivorian companies</strong> through energy management.",
+    "objectivesTitle": "THE SPECIFIC OBJECTIVES OF THE PROGRAM",
+    "objective1": "Strengthen awareness among companies of different sizes about the benefits of EE and RE investments, with a focus on the most energy-intensive sectors",
+    "objective2": "Foster the development of a reliable local technical services offer adapted to different needs and project scales",
+    "objective3": "Provide partner banks with technical, financial and commercial upgrading on EE and RE issues in the private sector",
+    "objective4": "Enable partner banks to build a pilot portfolio of EE and RE investments, and support them in defining their own green finance sector",
+    "objectivesNote": "These objectives help create an ecosystem favorable to the development of green energy projects in Côte d'Ivoire"
+  },
+  "stats": {
+    "title": "SUNREF IN FIGURES",
+    "stat1": "Maximum financing per project",
+    "stat2": "Companies supported",
+    "stat3": "Project success rate",
+    "stat4": "Targeted emissions reduction",
+    "feature1": "Personalized support",
+    "feature1Desc": "A team of experts accompanies you at every stage of your project",
+    "feature2": "Advantageous conditions",
+    "feature2Desc": "Preferential rates and investment grants"
+  },
+  "program": {
+    "title": "THE SUNREF CÔTE D'IVOIRE PROGRAM",
+    "subtitle": "Includes a specific and innovative financial offer and technical support",
+    "offer1": "Credit line",
+    "offer1Desc": "A credit line made available to partner banks, with privileged partnership conditions for financing green investments in the energy efficiency and renewable energy sector",
+    "offer2": "Technical assistance",
+    "offer2Desc": "Technical assistance for companies and banks to support them in:",
+    "offer2Item1": "Identifying investment opportunities in targeted areas",
+    "offer2Item2": "Structuring and monitoring investment projects and selecting the most suitable technologies",
+    "offer2Item3": "Tailored assistance according to the size and complexity of the project",
+    "offer3": "Investment grants",
+    "offer3Desc": "An envelope of investment grants intended for the Borrower's beneficiary clients for the implementation of Eligible Investments.",
+    "cta": "Discover the project cycle",
+    "imageBadge": "Energy Transition",
+    "imageTitle": "Invest in the sustainable future of your company",
+    "imageDesc": "Adapted solutions for each energy efficiency and renewable energy project"
+  },
+  "footer": {
+    "description": "Green <strong class=\"text-white\">finance program</strong> to promote private sector investments for the benefit of the Ivorian <strong class=\"text-green-400\">energy transition</strong>.",
+    "follow": "Follow us",
+    "navigation": "Navigation",
+    "quickLinks": "Quick links",
+    "contact": "Contact",
+    "partners": "Our partners",
+    "newsletterTitle": "Stay informed",
+    "newsletterDesc": "Subscribe to our newsletter to receive our news",
+    "newsletterPlaceholder": "Your email",
+    "newsletterButton": "Subscribe",
+    "copyright": "All rights reserved.",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy",
+    "cookies": "Cookies",
+    "links": {
+      "home": "Home",
+      "financement": "Financing",
+      "projets": "Financed Projects",
+      "partenaires": "Partners",
+      "actualites": "News",
+      "contact": "Contact",
+      "eligibility": "Eligibility criteria",
+      "cycle": "Project cycle",
+      "realizations": "Our achievements",
+      "becomePartner": "Become a partner"
+    }
+  },
+  "cta": {
+    "title": "Ready to start your project?",
+    "description": "Contact us today to discover how SUNREF can finance your energy transition",
+    "button": "Request financing"
+  },
+  "ctaSection": {
+    "callUs": "Call us",
+    "callUsDesc": "Talk to our team",
+    "callUsLink": "View contacts",
+    "emailUs": "Email us",
+    "emailUsDesc": "Send us a message",
+    "emailUsLink": "Contact form",
+    "documentation": "Documentation",
+    "documentationDesc": "Browse our resources",
+    "documentationLink": "Learn more",
+    "startProject": "Start my project now"
+  }
+}
+
