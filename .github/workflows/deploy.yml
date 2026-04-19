@@ -1,0 +1,147 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+      DEPLOY_HOST: ${{ vars.DEPLOY_HOST || '82.29.174.93' }}
+      DEPLOY_PORT: ${{ vars.DEPLOY_PORT || '22' }}
+      DEPLOY_USER: ${{ vars.DEPLOY_USER || 'deployer' }}
+      APP_ROOT: ${{ vars.DEPLOY_PATH || '/var/www/sunrefcotedivoire' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Build application
+        run: npm run build
+
+      - name: Package release
+        run: git archive --format=tar.gz --output=release.tgz HEAD
+
+      - name: Configure SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+
+          [ -n "$DEPLOY_SSH_KEY" ] || { echo "Missing DEPLOY_SSH_KEY secret"; exit 1; }
+          [ -n "$DEPLOY_KNOWN_HOSTS" ] || { echo "Missing DEPLOY_KNOWN_HOSTS secret"; exit 1; }
+
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Upload release bundle
+        run: |
+          set -euo pipefail
+          scp \
+            -i ~/.ssh/deploy_key \
+            -o IdentitiesOnly=yes \
+            -P "$DEPLOY_PORT" \
+            release.tgz \
+            "$DEPLOY_USER@$DEPLOY_HOST:/tmp/sunrefcotedivoire-$GITHUB_SHA.tgz"
+
+      - name: Deploy release
+        env:
+          PROD_ENV_FILE: ${{ secrets.PROD_ENV_FILE }}
+        run: |
+          set -euo pipefail
+
+          [ -n "$PROD_ENV_FILE" ] || { echo "Missing PROD_ENV_FILE secret"; exit 1; }
+
+          APP_ENV_B64="$(printf '%s' "$PROD_ENV_FILE" | base64 -w 0)"
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o IdentitiesOnly=yes \
+            -p "$DEPLOY_PORT" \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "APP_ROOT='$APP_ROOT' RELEASE_SHA='$GITHUB_SHA' APP_ENV_B64='$APP_ENV_B64' bash -s" <<'EOF'
+          set -euo pipefail
+
+          RELEASE_DIR="$APP_ROOT/releases/$RELEASE_SHA"
+          SHARED_DIR="$APP_ROOT/shared"
+          TMP_ARCHIVE="/tmp/sunrefcotedivoire-$RELEASE_SHA.tgz"
+
+          mkdir -p "$RELEASE_DIR" "$SHARED_DIR"
+          tar -xzf "$TMP_ARCHIVE" -C "$RELEASE_DIR"
+          rm -f "$TMP_ARCHIVE"
+
+          printf '%s' "$APP_ENV_B64" | base64 --decode > "$SHARED_DIR/.env.production"
+          ln -sfn "$SHARED_DIR/.env.production" "$RELEASE_DIR/.env.production"
+          ln -sfn "$RELEASE_DIR" "$APP_ROOT/current"
+
+          cd "$APP_ROOT/current"
+
+          if ! docker info >/dev/null 2>&1; then
+            echo "Docker is not accessible for the deploy user. Add the user to the docker group before running this workflow."
+            exit 1
+          fi
+
+          COMPOSE_PROJECT_NAME=sunrefcotedivoire docker compose -f docker-compose.production.yml up -d --build --remove-orphans
+
+          check_app() {
+            if command -v curl >/dev/null 2>&1; then
+              curl -fsS http://127.0.0.1:3000 >/dev/null
+              return $?
+            fi
+
+            if command -v wget >/dev/null 2>&1; then
+              wget -qO- http://127.0.0.1:3000 >/dev/null
+              return $?
+            fi
+
+            return 127
+          }
+
+          if ! command -v curl >/dev/null 2>&1 && ! command -v wget >/dev/null 2>&1; then
+            echo "Skipping HTTP verification because neither curl nor wget is installed on the server."
+            COMPOSE_PROJECT_NAME=sunrefcotedivoire docker compose -f docker-compose.production.yml ps
+            exit 0
+          fi
+
+          for attempt in $(seq 1 12); do
+            if check_app >/dev/null 2>&1; then
+              COMPOSE_PROJECT_NAME=sunrefcotedivoire docker compose -f docker-compose.production.yml ps
+              exit 0
+            fi
+
+            sleep 5
+          done
+
+          COMPOSE_PROJECT_NAME=sunrefcotedivoire docker compose -f docker-compose.production.yml ps
+          COMPOSE_PROJECT_NAME=sunrefcotedivoire docker compose -f docker-compose.production.yml logs --tail=100
+          exit 1
+          EOF

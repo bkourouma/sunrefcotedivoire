@@ -1,0 +1,9 @@
+.git
+.github
+.next
+node_modules
+.env
+.env.*
+!.env.production.example
+npm-debug.log*
+release.tgz
